@@ -86,7 +86,7 @@ _Below is an example of how you can instruct installing and setting up the app.
    ```sh
    npm install
    ```
-3. Enter your API in `config.js`
+3. Init project
    ```sh
    npm run start
    ```
