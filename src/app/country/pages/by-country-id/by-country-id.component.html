@@ -1,0 +1,53 @@
+<div *ngIf="!country; else showCountry" class="alert alert-info">
+    Loading ...
+</div>
+
+<ng-template #showCountry>
+    <div class="row">
+        <div class="col-12">
+            <h2>{{country.name.common}}</h2>
+        </div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Coat of arms</h3>
+            
+            <div *ngIf="country?.coatOfArms?.png; else showNotImage">
+                <img [src]="country.coatOfArms.png" class="img-thumbnail">
+            </div>
+            <ng-template #showNotImage>
+                <img src="assets/images/no-image-icon.png" alt="image-not-found" class="img-thumbnail">
+            </ng-template>
+            
+        </div>
+        <div class="col">
+            <h3>Information</h3>
+            <ul class="list-group">
+                <li class="list-group-item"> 
+                    <div>
+                        <strong>Code number: </strong>{{country.ccn3}}    
+                    </div>
+                    <div><a [href]="country.maps.googleMaps" target="_blank"> Google Maps</a></div>
+                </li>
+                <li class="list-group-item">
+                    <strong>Area(km2): </strong>{{country.area | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Population: </strong>{{country.population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Language: </strong>{{country.languages | language}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Currency: </strong>{{country.currencies | currency}}
+                </li>
+                <li class="list-group-item">
+                    <strong>Translations: </strong>
+                    <hr>
+                    <span *ngFor="let translate of country.translations | keyvalue" class="badge bg-primary badge-translate">{{translate.value.common}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</ng-template>

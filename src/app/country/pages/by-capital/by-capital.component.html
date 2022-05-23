@@ -1,0 +1,25 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>By Capital</h2>
+  <hr />
+  <div class="row">
+    <div class="col">
+      <app-country-input
+        (onEnter)="search($event)"
+        [placeholder]="'Search by capital'"
+      ></app-country-input>
+    </div>
+  </div>
+  <hr />
+</div>
+
+<div *ngIf="hasError; else showTable" class="alert alert-danger">
+  <strong>Error!</strong> No capital found with the term: {{ term }}
+</div>
+
+<ng-template #showTable>
+  <div *ngIf="countries.length" class="row">
+    <div class="col">
+      <app-country-table [countries]="countries"></app-country-table>
+    </div>
+  </div>
+</ng-template>
