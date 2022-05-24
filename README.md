@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Project Country App](https://github.com/serghino/Country-App.git)
+[Project Country App](https://serghino.github.io/Country-App/)
 
 A simple app to search for countries by name, capital, region and more.
 
